@@ -54,6 +54,7 @@ EMBED_CODE
   def request_host
     ret = "http://#{@request.host}"
     ret = "#{ret}:#{@request.port}" if @request.port.to_i != 80
+    ret
   end
   def get_kosmix_response(text)
     if @request.host == "127.0.0.1"
