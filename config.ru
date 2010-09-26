@@ -28,6 +28,7 @@ kosmix_jQuery.getJSON("#{request_host}/kosmix_proxy.js?callback=?&text=" + text,
   } else if (typeof(data) != 'undefined'){
     kosmix_jQuery("#kosmix_widget").append("<ul>");
     for (var i in data.mentions) {
+      console.log(data.mentions[i].EntityName + " : " + data.mentions[i].EntityScore);
       if (data.mentions[i].EntityScore > 0.80) {
         kosmix_jQuery("#kosmix_widget").append("<li style='display:inline;padding:10px;'>" + data.mentions[i].EntityName + "</li>");
       }
