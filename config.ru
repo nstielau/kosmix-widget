@@ -19,7 +19,7 @@ end
 
 get '/widget.js' do
 <<WIDGET_JS
-var text = encodeURI(kosmix_jQuery('body').html);
+var text = encodeURI(kosmix_jQuery('body').html());
 kosmix_jQuery.getJSON("#{request_host}/kosmix_proxy.js?callback=?&text=" + text, function(data) {
   console.log(data);
   kosmix_jQuery("#kosmix_widget").html("");
