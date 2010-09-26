@@ -61,8 +61,8 @@ EMBED_CODE
 American who has a special connection to the afterlife. On the other side of the world, Marie (CÈcile De France), a French journalist,
 has a near-death experience that shakes her reality. And when Marcus, a London schoolboy, loses the person closest to him, he desperately needs answers. Each
 on a path in search of the truth, their lives will intersect, forever changed by what they believe might-or must-exist in the hereafter."
-      text = CGI::escape(text)
     end
+    text = CGI::escape(text)
     kosmix_api_key = "1e8e8a509409d1efaff73195baf254"
     kosmix_url = "http://api.kosmix.com/annotate/v1?text=#{text}&key=#{kosmix_api_key}"
     uri = URI.parse(kosmix_url)
