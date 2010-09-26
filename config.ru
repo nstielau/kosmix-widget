@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'erb'
-require 'open-uri'
+require 'net/http'
+require 'uri'
 
 set :public, File.dirname(__FILE__) + '/public'
 set :views, File.dirname(__FILE__) + '/templates'
@@ -59,6 +60,10 @@ EMBED_CODE
     url = "http://www.metacafe.com/watch/5199459/hereafter_movie_trailer/" if @request.host == "127.0.0.1"
     kosmix_api_key = "1e8e8a509409d1efaff73195baf254"
     kosmix_url = "http://api.kosmix.com/annotate/v1?url=#{url}&key=#{kosmix_api_key}"
-    result = open(kosmix_url).read
+    uri = URI.parse(kosmix_url)
+    res = Net::HTTP.start(uri.host, uri.port) {|http|
+      http.get("#{uri.path}?#{uri.query}")
+    }
+    res.body
   end
 end
