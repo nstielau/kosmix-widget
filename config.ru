@@ -61,10 +61,15 @@ EMBED_CODE
   end
   def get_kosmix_response(text)
     if @request.host == "127.0.0.1"
-      text = "Hereafter tells the story of three people who are touched by death in different ways. George (Matt Damon) is a blue-collar
-American who has a special connection to the afterlife. On the other side of the world, Marie (CÈcile De France), a French journalist,
-has a near-death experience that shakes her reality. And when Marcus, a London schoolboy, loses the person closest to him, he desperately needs answers. Each
-on a path in search of the truth, their lives will intersect, forever changed by what they believe might-or must-exist in the hereafter."
+      text = "The 2009 Lamar Hunt U.S. Open Cup Final was played on September 2, 2009, at Robert F. Kennedy Memorial Stadium in Washington, D.C.
+      The match determined the winner of the 2009 edition of the Lamar Hunt U.S. Open Cup, a tournament open to amateur and professional soccer
+       teams affiliated with the United States Soccer Federation. This was the 96th edition of the oldest competition in United States soccer.
+       The match was won by Seattle Sounders FC, who defeated D.C. United 2–1. Seattle became the second expansion team in Major League Soccer
+       history to win the tournament in their inaugural season. D.C. United entered the tournament as the competition's defending champions.
+       Both Sounders FC and D.C. United had to play through two qualification rounds for MLS teams before entering the official tournament.
+       Prior to the final, there was a public dispute between the owners of the two clubs regarding the selection of D.C. United to host it at their home field,
+       RFK Stadium. As the tournament champions, Sounders FC earned a berth in the preliminary round of the 2010–11 CONCACAF Champions League.
+       The club also received a $100,000 cash prize, while D.C. United received $50,000 as the runner-up."
     end
     text = CGI::escape(text)
     kosmix_api_key = "1e8e8a509409d1efaff73195baf254"
