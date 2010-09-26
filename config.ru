@@ -18,21 +18,19 @@ end
 
 get '/widget.js' do
 <<WIDGET_JS
-var url = location.href;
-kosmix_jQuery.getJSON("#{request_host}/kosmix_proxy.js?callback=?&url=" + url, function(data) {
+var text = encodeURI(kosmix_jQuery('body').html);
+kosmix_jQuery.getJSON("#{request_host}/kosmix_proxy.js?callback=?&text=" + text, function(data) {
   console.log(data);
+  kosmix_jQuery("#kosmix_widget").html("");
   if (typeof(data.error) != 'undefined') {
-    alert('error:' + data.error);
+    kosmix_jQuery("#kosmix_widget").html('An error occured:' + data.error);
   } else {
-    kosmix_jQuery("#kosmix_widget").html("");
     kosmix_jQuery("#kosmix_widget").append("<ul>");
     for (var i in data.mentions) {
       kosmix_jQuery("#kosmix_widget").append("<li style='display:inline;padding:10px;'>" + data.mentions[i].EntityName + "</li>");
     }
     kosmix_jQuery("#kosmix_widget").append("</ul>");
   }
-
-
 });
 WIDGET_JS
 end
